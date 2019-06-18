@@ -1,0 +1,24 @@
+Hub
+
+set projectLocation=C:\Users\phams\eclipse-workspace\Selenium_Folder\Selenium\lib\seleniumjars\
+pushd %projectLocation%
+
+java -jar selenium-server-standalone-3.141.59.jar  -role hub http://localhost:4444/grid/register
+
+-Dwebdriver.chrome.driver="chromedriver.exe"
+
+
+cd E:\Program\selenium_webdrive
+
+set projectLocation=E:\Program\selenium_webdrive
+pushd %projectLocation%
+
+
+Hub
+java -jar selenium-server-standalone-3.141.59.jar -role hub
+
+Node Chrome
+java -Dwebdriver.chrome.driver=E:\Program\selenium_webdrive\Webdriver\chromedriver.exe -jar  selenium-server-standalone-3.141.59_2.jar -role node  -hub http://localhost:4444/grid/register -port 5551 -browser browserName=chrome
+java -Dwebdriver.gecko.driver=E:\Program\selenium_webdrive\Webdriver\geckodriver.exe        -jar  selenium-server-standalone-3.141.59_2.jar -role node  -hub http://localhost:4444/grid/register -port 5552 -browser browserName="firefox"
+java -Dwebdriver.ie.driver=E:\Program\selenium_webdrive\Webdriver\IEDriverServer.exe     -jar  selenium-server-standalone-3.141.59_2.jar -role node  -hub http://localhost:4444/grid/register -port 5553 -browser browserName="internet explorer"
+java -Dwebdriver.ie.driver=E:\Program\selenium_webdrive\Webdriver\IEDriverServer.exe     -jar  selenium-server-standalone-3.141.59_2.jar -role node  -hub http://localhost:4444/grid/register -port 5554 -browser browserName="Microsoft Edge"
